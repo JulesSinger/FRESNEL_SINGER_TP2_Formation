@@ -1,6 +1,7 @@
 package classes;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 /**
  * represente une formation constituee d'un identifiant et d'une liste de matieres
@@ -56,4 +57,14 @@ public class Formation {
 
         return 0.0;
     }
+    
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+	       if (o == null || getClass() != o.getClass()) return false;
+	       Formation formation = (Formation) o;
+	       return Objects.equals(identifiant, formation.identifiant) &&
+	               Objects.equals(matieres, formation.matieres);
+	}
+	
 }
