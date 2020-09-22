@@ -43,8 +43,9 @@ public class Etudiant {
 	 * 
 	 * @param matiere matiere correspondant a la note
 	 * @param note    note attribuee
+	 * @throws Exception 
 	 */
-	public void ajouterNote(String matiere, double note) {
+	public void ajouterNote(String matiere, double note) throws Exception {
 		if (note < 0 && note > 20)
 			throw new Exception("La note n'est pas comprise entre 0 et 20");
 		if (!this.resultats.containsKey(matiere))
@@ -58,8 +59,9 @@ public class Etudiant {
 	 * 
 	 * @param matiere matiere
 	 * @return moyenne de la matiere
+	 * @throws Exception 
 	 */
-	public double moyenne(String matiere) {
+	public double moyenne(String matiere) throws Exception {
 		if (!this.resultats.containsKey(matiere))
 			throw new Exception("L'etudiant ne suit pas le cours de " + matiere + " dans sa formation");
 
@@ -76,8 +78,9 @@ public class Etudiant {
 	 * Donne la moyenne generale de l'etudiant
 	 * 
 	 * @return moyenne generale de l'etudiant
+	 * @throws Exception 
 	 */
-	public double moyenneGenerale() {
+	public double moyenneGenerale() throws Exception {
 		double sum = 0;
 		double nb = 0;
 
