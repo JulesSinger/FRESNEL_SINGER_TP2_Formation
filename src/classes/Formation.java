@@ -58,6 +58,14 @@ public class Formation {
         return 0.0;
     }
     
+    /**
+     * recupere les matieres 
+     * @return l'attribut matieres
+     */
+    public HashMap<String, Double> getMatieres() {
+    	return this.matieres;
+    }
+    
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
