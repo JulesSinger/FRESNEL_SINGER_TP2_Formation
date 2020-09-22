@@ -71,7 +71,7 @@ public class Etudiant {
 			sum += note;
 		}
 
-		return Math.round(sum / this.resultats.get(matiere).size() * 100) / 100;
+		return Math.round(sum / this.resultats.get(matiere).size() * 100.0) / 100.0;
 	}
 
 	/**
@@ -90,8 +90,7 @@ public class Etudiant {
 			sum += this.moyenne(matiere) * coef;
 			nb += coef;
 		}
-
-		return Math.round(sum / nb * 100) / 100;
+		return Math.round(sum / nb * 100.0) / 100.0;
 	}
 
 	/**

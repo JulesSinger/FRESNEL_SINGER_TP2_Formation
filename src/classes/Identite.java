@@ -5,7 +5,7 @@ package classes;
  */
 public class Identite {
 	/**
-	 * Numero d’Identification Personnel
+	 * Numero dï¿½Identification Personnel
 	 */
 	private String nip;
 
