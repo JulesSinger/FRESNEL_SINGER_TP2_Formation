@@ -1,0 +1,12 @@
+@startuml
+
+activate Groupe
+activate Etudiant
+-> Groupe : moyennePourMatiere(matiere)
+loop
+Groupe -> Etudiant : moyenne(matiere)
+Etudiant -> Groupe : double
+end loop
+<- Groupe : double
+
+@enduml
