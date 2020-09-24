@@ -37,7 +37,7 @@ public class Groupe {
 	 * @param e etudiant a ajouter
 	 */
 	public void ajouterEtudiant(Etudiant e) {
-		if (e.getFormation().equals(this.formation) && !this.etudiants.contains(e)) {
+		if (e.getFormation() == this.formation && !this.etudiants.contains(e)) {
 			this.etudiants.add(e);
 		}
 	}

@@ -66,13 +66,6 @@ public class Formation {
     	return this.matieres;
     }
     
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-	       if (o == null || getClass() != o.getClass()) return false;
-	       Formation formation = (Formation) o;
-	       return Objects.equals(identifiant, formation.identifiant) &&
-	               Objects.equals(matieres, formation.matieres);
-	}
+	
 	
 }

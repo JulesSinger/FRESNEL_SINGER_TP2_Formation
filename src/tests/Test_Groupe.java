@@ -2,7 +2,6 @@ package tests;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.junit.Before;
@@ -17,18 +16,19 @@ import classes.Identite;
  * Classe de test pour la classe Etudiant
  */
 public class Test_Groupe {
-	
-	
+
 	private Etudiant etu1;
 	private Etudiant etu2;
 	private Etudiant etu3;
 	private Groupe gr;
+	private Formation form1;
 
+	@SuppressWarnings("unused")
 	@Before
 	public void init() {
 		// premiere formation
 		HashMap<String, Double> matieresForm1 = new HashMap<String,Double>();
-		Formation form1 = new Formation("DUT_info", matieresForm1);
+		form1 = new Formation("DUT_info", matieresForm1);
 		form1.ajouterMatiere("info", 2.0);
 		form1.ajouterMatiere("maths", 1.0);
 		
@@ -45,7 +45,6 @@ public class Test_Groupe {
 		
 		 //groupe d'etudiants
 		 gr = new Groupe(form1);
-		
 	}
 	
 	/**
@@ -139,7 +138,7 @@ public class Test_Groupe {
        	etu2.ajouterNote("maths", 16.0);
        	
 		// Methode testee
-		Double moyMatiere = gr.moyennePourMatiere("info");
+		gr.moyennePourMatiere("CPOA");
 	}
 	
 	/**
@@ -175,6 +174,58 @@ public class Test_Groupe {
 		// Verification
 		assertEquals("La moyenne devrait etre de 0.0", (Double)0.0, moyGenerale);
 
+	}
+	
+	/**
+	 * Test de la methode triParMerite
+	 * @throws Exception 
+	 */
+	@Test
+	public void testTriParMerite() throws Exception {
+		//Preparation des donnees
+		
+		gr.ajouterEtudiant(etu2);
+       	etu2.ajouterNote("maths", 10.0);
+       	etu2.ajouterNote("info", 10.0);
+       	
+       	gr.ajouterEtudiant(etu1);
+	   	etu1.ajouterNote("maths", 20.0);
+	   	etu1.ajouterNote("info", 20.0);
+       	
+       	etu3 = new Etudiant(new Identite("3", "Singer", "Jules"), form1);
+       	gr.ajouterEtudiant(etu3);
+       	etu3.ajouterNote("maths", 15.0);
+       	etu3.ajouterNote("info", 15.0);
+       	
+		// Methode testee
+		gr.triParMerite();
+		
+		// Verification
+		assertEquals("Le premier etudiant de la liste devrait etre Hugo", true, gr.getEtudiants().get(0) == etu1);
+		assertEquals("Le deuxieme etudiant de la liste devrait etre Jules", true, gr.getEtudiants().get(1) == etu3);
+		assertEquals("Le troisieme etudiant de la liste devrait etre Jeremy", true, gr.getEtudiants().get(2) == etu2);
+
+	}
+	
+	/**
+	 * Test de la methode triAlpha
+	 * @throws Exception 
+	 */
+	@Test
+	public void testTriAlpha() throws Exception {
+		//Preparation des donnees
+		gr.ajouterEtudiant(etu2);	
+       	gr.ajouterEtudiant(etu1);
+       	etu3 = new Etudiant(new Identite("3", "Singer", "Jules"), form1);
+       	gr.ajouterEtudiant(etu3);
+   
+		// Methode testee
+		gr.triAlpha();
+		
+		// Verification
+		assertEquals("Le premier etudiant de la liste devrait etre Hugo", true, gr.getEtudiants().get(0) == etu1);
+		assertEquals("Le deuxieme etudiant de la liste devrait etre Jeremy", true, gr.getEtudiants().get(1) == etu2);
+		assertEquals("Le troisieme etudiant de la liste devrait etre Jules", true, gr.getEtudiants().get(2) == etu3);
 	}
 	
 }
