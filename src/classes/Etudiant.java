@@ -110,4 +110,13 @@ public class Etudiant {
 	public Formation getFormation() {
 		return this.formation;
 	}
+	
+	/**
+	 * Forme textuelle de l'etudiant
+	 * 
+	 * @return forme textuelle de l'etudiant
+	 */
+	public String toString() {
+		return this.id.getNom() + " " + this.id.getPrenom() + " [" + this.id.getNip() + "]";
+	}
 }
