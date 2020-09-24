@@ -43,7 +43,7 @@ public class Etudiant {
 	 * 
 	 * @param matiere matiere correspondant a la note
 	 * @param note    note attribuee
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public void ajouterNote(String matiere, double note) throws Exception {
 		if (note < 0 && note > 20)
@@ -59,7 +59,7 @@ public class Etudiant {
 	 * 
 	 * @param matiere matiere
 	 * @return moyenne de la matiere
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public double moyenne(String matiere) throws Exception {
 		if (!this.resultats.containsKey(matiere))
@@ -78,7 +78,7 @@ public class Etudiant {
 	 * Donne la moyenne generale de l'etudiant
 	 * 
 	 * @return moyenne generale de l'etudiant
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public double moyenneGenerale() throws Exception {
 		double sum = 0;
@@ -100,5 +100,14 @@ public class Etudiant {
 	 */
 	public HashMap<String, ArrayList<Double>> getResultats() {
 		return this.resultats;
+	}
+
+	/**
+	 * Recupere la formation de l'etudiant
+	 * 
+	 * @return formation de l'etudiant
+	 */
+	public Formation getFormation() {
+		return this.formation;
 	}
 }
