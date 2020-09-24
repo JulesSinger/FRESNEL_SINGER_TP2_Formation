@@ -5,10 +5,9 @@ package classes;
  */
 public class Identite {
 	/**
-	 * Numero d�Identification Personnel
+	 * Numero d'Identification Personnel
 	 */
 	private String nip;
-
 	/**
 	 * Nom
 	 */
@@ -22,7 +21,7 @@ public class Identite {
 	/**
 	 * Constructeur de base d'une identite
 	 * 
-	 * @param n numero d'identification personnel
+	 * @param n  numero d'identification personnel
 	 * @param no nom
 	 * @param pr prenom
 	 */
@@ -31,4 +30,33 @@ public class Identite {
 		this.nom = no;
 		this.prenom = pr;
 	}
+	
+
+	/**
+	 * Recupere le NIP
+	 * 
+	 * @return NIP
+	 */
+	public String getNip() {
+		return nip;
+	}
+
+	/**
+	 * Recupere le nom
+	 * 
+	 * @return nom
+	 */
+	public String getNom() {
+		return nom;
+	}
+
+	/**
+	 * Recupere le prenom
+	 * 
+	 * @return prenom
+	 */
+	public String getPrenom() {
+		return prenom;
+	}
+
 }

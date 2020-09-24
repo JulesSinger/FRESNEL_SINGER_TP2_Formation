@@ -1,6 +1,10 @@
 package classes;
 
 import java.util.ArrayList;
+import java.util.Collections;
+
+import comparators.AlphaComparator;
+import comparators.MeriteComparator;
 
 /**
  * Represente un groupe de classe
@@ -55,6 +59,9 @@ public class Groupe {
 	 * @throws Exception
 	 */
 	public double moyennePourMatiere(String matiere) throws Exception {
+		if (!this.formation.getMatieres().containsKey(matiere))
+			throw new Exception("La matiere n'est pas dans la formation suivie par le groupe.");
+		
 		double sum = 0.0;
 
 		for (Etudiant e : this.etudiants) {
@@ -90,5 +97,19 @@ public class Groupe {
 	 */
 	public ArrayList<Etudiant> getEtudiants() {
 		return this.etudiants;
+	}
+
+	/**
+	 * Tri les etudiants par merite (moyenne generale decroissante)
+	 */
+	public void triParMerite() {
+		Collections.sort(this.etudiants, new MeriteComparator());
+	}
+	
+	/**
+	 * Tri les etudiants par ordre alphabetique
+	 */
+	public void triAlpha() {
+		Collections.sort(this.etudiants, new AlphaComparator());
 	}
 }
