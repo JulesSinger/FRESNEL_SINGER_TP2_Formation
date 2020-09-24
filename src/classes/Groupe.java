@@ -89,6 +89,6 @@ public class Groupe {
 	 * @return liste des etudiants du groupe
 	 */
 	public ArrayList<Etudiant> getEtudiants() {
-		return this.getEtudiants();
+		return this.etudiants;
 	}
 }
